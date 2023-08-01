@@ -75,7 +75,7 @@ const createUser = async (userObject: {
   const { fullName, email, password, confirmPassword, phoneNumber } =
     userObject;
   // check fullName all required fields are entered
-  if (!fullName || !email || !password || !confirmPassword) {
+  if (!fullName || !email || !password || !confirmPassword || !phoneNumber) {
     return { status: 400, message: messages.general.missingInputErr };
   }
   // validate on the password and generate the hashed value

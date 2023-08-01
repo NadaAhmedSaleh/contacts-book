@@ -1,7 +1,7 @@
-import express, { Express } from "express";
+import express from "express";
 import usersRoutes from "../routes/authentication";
 
-const app: Express = express();
+const app = express();
 app.use(express.json()); // to parse request bodies
 
 app.use("/auth", usersRoutes);

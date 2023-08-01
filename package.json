@@ -16,7 +16,6 @@
     "url": "https://github.com/NadaAhmedSaleh/contacts-book/issues"
   },
   "homepage": "https://github.com/NadaAhmedSaleh/contacts-book#readme",
-  "type": "module",
   "dependencies": {
     "bcrypt": "^5.1.0",
     "bcryptjs": "^2.4.3",
