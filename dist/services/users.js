@@ -17,7 +17,6 @@ const config_1 = __importDefault(require("config"));
 const bcryptjs_1 = __importDefault(require("bcryptjs"));
 const jsonwebtoken_1 = __importDefault(require("jsonwebtoken"));
 const rand_token_1 = require("rand-token");
-const http_errors_1 = require("http-errors");
 const message_js_1 = __importDefault(require("../utils/message.js"));
 const user_js_1 = __importDefault(require("../models/user.js"));
 // supporting functions
@@ -72,7 +71,7 @@ const validateAndHashPassword = (password, confirmPassword) => __awaiter(void 0,
 const createUser = (userObject) => __awaiter(void 0, void 0, void 0, function* () {
     const { fullName, email, password, confirmPassword, phoneNumber } = userObject;
     // check fullName all required fields are entered
-    if (!fullName || !email || !password || !confirmPassword) {
+    if (!fullName || !email || !password || !confirmPassword || !phoneNumber) {
         return { status: 400, message: message_js_1.default.general.missingInputErr };
     }
     // validate on the password and generate the hashed value
@@ -97,14 +96,12 @@ const createUser = (userObject) => __awaiter(void 0, void 0, void 0, function* (
     }
     catch (err) {
         let errMessage = "";
-        if ((0, http_errors_1.isHttpError)(err)) {
-            errMessage = err.message;
-            if (err.code === 11000) {
-                // this err code is returned when try to save doc with duplicate field of one of the fields with unique property
-                var field = Object.keys(err.keyValue)[0]; // which field caused the error (username, email or phone number)
-                var value = err.keyValue[field];
-                errMessage = message_js_1.default.general.alreadyExistsFieldErr(value, field);
-            }
+        errMessage = err.message;
+        if (err.code === 11000) {
+            // this err code is returned when try to save doc with duplicate field of one of the fields with unique property
+            var field = Object.keys(err.keyValue)[0]; // which field caused the error (username, email or phone number)
+            var value = err.keyValue[field];
+            errMessage = message_js_1.default.general.alreadyExistsFieldErr(value, field);
         }
         return {
             status: 400,

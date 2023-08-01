@@ -1,9 +1,7 @@
 import config from "config";
 import bcrypt from "bcryptjs";
-import createError from "http-errors";
 import jwt, { Secret } from "jsonwebtoken";
-import { uid } from "rand-token";
-import { isHttpError } from "http-errors";
+import { uid } from "rand-token"
 
 import messages from "../utils/message.js";
 
@@ -101,17 +99,15 @@ const createUser = async (userObject: {
       status: 200,
       message: messages.users.userCreatedSuccess(fullName),
     };
-  } catch (err) {
+  } catch (err ) {
     let errMessage = "";
-    if (isHttpError(err)) {
       errMessage = err.message;
-
       if (err.code === 11000) {
         // this err code is returned when try to save doc with duplicate field of one of the fields with unique property
         var field = Object.keys(err.keyValue)[0]; // which field caused the error (username, email or phone number)
         var value = err.keyValue[field];
         errMessage = messages.general.alreadyExistsFieldErr(value, field);
-      }
+      
     }
     return {
       status: 400,
