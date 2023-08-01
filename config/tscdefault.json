@@ -1,0 +1,14 @@
+{
+    "timers": {
+        "tokenLifeSpan": "3h"
+    },
+    "regex": {
+        "fullName": "^.{5,30}$",
+        "email": "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$",
+        "password": "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,12}$",
+        "phoneNumber": "^\\+?\\d{1,3}\\s?\\(?\\d{3}\\)?[-.\\s]?\\d{3}[-.\\s]?\\d{4}$"
+    },
+    "user": {
+        "tokenValidationLength": 16
+    }
+}

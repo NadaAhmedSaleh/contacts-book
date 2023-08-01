@@ -1,0 +1,8 @@
+{
+    "connections": {
+        "mongo-connect": "mongodb://localhost:27017/AgentBook"
+    },
+    "secrets": {
+        "jwtPrivateKey": "Secret key"
+    }
+}

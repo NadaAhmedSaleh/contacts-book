@@ -1,0 +1,35 @@
+{
+  "name": "bringy",
+  "version": "1.0.0",
+  "description": "A node js project to save users contacts",
+  "main": "index.cjs",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NadaAhmedSaleh/contacts-book.git"
+  },
+  "author": "Nada Hamdy",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/NadaAhmedSaleh/contacts-book/issues"
+  },
+  "homepage": "https://github.com/NadaAhmedSaleh/contacts-book#readme",
+  "type": "module",
+  "dependencies": {
+    "bcrypt": "^5.1.0",
+    "bcryptjs": "^2.4.3",
+    "config": "^3.3.9",
+    "http-errors": "^2.0.0",
+    "jsonwebtoken": "^9.0.1",
+    "mongoose": "^7.4.1",
+    "rand-token": "^1.0.1"
+  },
+  "devDependencies": {
+    "@types/bcryptjs": "^2.4.2",
+    "@types/config": "^3.3.0",
+    "@types/express": "^4.17.17",
+    "@types/jsonwebtoken": "^9.0.2"
+  }
+}
